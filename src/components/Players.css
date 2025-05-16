@@ -1,0 +1,499 @@
+/* Base Styles */
+.soccer_players_container {
+  min-height: 100vh;
+  background: #0a1020;
+  color: white;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* Header Styles */
+.soccer_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  margin-bottom: 2rem;
+}
+
+.soccer_logo_container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.soccer_logo {
+  height: 3rem;
+  width: auto;
+}
+
+.soccer_title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.soccer_search_container {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  width: 250px;
+}
+
+.soccer_search_icon {
+  color: rgba(255, 255, 255, 0.6);
+  margin-right: 0.5rem;
+}
+
+.soccer_search_input {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 0.875rem;
+  width: 100%;
+  outline: none;
+}
+
+.soccer_search_input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Main Content */
+.soccer_main_content {
+  padding: 0 3rem 3rem;
+}
+
+/* Category Tabs */
+.soccer_category_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.soccer_section_tabs {
+  display: flex;
+  gap: 1rem;
+}
+
+.soccer_section_tab {
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.soccer_section_tab:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.soccer_section_tab_active {
+  background-color: #b5004c;
+  color: white;
+  box-shadow: 0 4px 15px rgba(181, 0, 76, 0.3);
+}
+
+.soccer_position_tabs {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.soccer_position_tab {
+  padding: 0.5rem 1.25rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.soccer_position_tab:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.soccer_position_tab_active {
+  background-color: rgba(181, 0, 76, 0.2);
+  color: #ff3385;
+}
+
+/* Featured Player Section */
+.soccer_featured_section {
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.soccer_featured_controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.soccer_control_button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+}
+
+.soccer_control_button:hover {
+  background-color: rgba(181, 0, 76, 0.8);
+  transform: scale(1.1);
+}
+
+.soccer_featured_player_card {
+  display: flex;
+  background: #0f1525;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 500px;
+}
+
+.soccer_featured_player_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.soccer_featured_player_sidebar {
+  width: 120px;
+  background-color: #b5004c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.soccer_featured_player_number {
+  font-size: 5rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.soccer_featured_player_content {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.soccer_featured_player_position {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background-color: rgba(181, 0, 76, 0.8);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.soccer_featured_player_image_container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.soccer_featured_player_image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.soccer_featured_player_card:hover .soccer_featured_player_image {
+  transform: scale(1.05);
+}
+
+.soccer_featured_player_info {
+  padding: 2rem;
+  background: linear-gradient(0deg, #0f1525 0%, rgba(15, 21, 37, 0.8) 100%);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.soccer_featured_player_name {
+  margin-bottom: 1.5rem;
+}
+
+.soccer_player_firstname {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.25rem;
+}
+
+.soccer_player_lastname {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(90deg, #ff3385, #ff66a3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.soccer_featured_player_stats {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.soccer_stat_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.soccer_stat_value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ff3385;
+}
+
+.soccer_stat_label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.soccer_view_profile_btn {
+  background-color: #b5004c;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.soccer_view_profile_btn:hover {
+  background-color: #ff3385;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(181, 0, 76, 0.4);
+}
+
+/* Players Grid */
+.soccer_players_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.soccer_player_card {
+  display: flex;
+  background: #0f1525;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 350px;
+}
+
+.soccer_player_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.soccer_player_card_sidebar {
+  width: 60px;
+  background-color: #b5004c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.soccer_player_card_number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.soccer_player_card_content {
+  flex: 1;
+  position: relative;
+}
+
+.soccer_player_card_position {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(181, 0, 76, 0.8);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.soccer_player_card_image_container {
+  height: 75%;
+  overflow: hidden;
+}
+
+.soccer_player_card_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.soccer_player_card:hover .soccer_player_card_image {
+  transform: scale(1.05);
+}
+
+.soccer_player_card_info {
+  padding: 1rem;
+  background: linear-gradient(0deg, #0f1525 0%, rgba(15, 21, 37, 0.8) 100%);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.soccer_player_card_name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.soccer_player_card_nationality {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .soccer_featured_player_card {
+    height: auto;
+  }
+
+  .soccer_featured_player_image_container {
+    height: 400px;
+  }
+}
+
+@media (max-width: 992px) {
+  .soccer_header,
+  .soccer_main_content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .soccer_category_container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .soccer_players_grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  .soccer_featured_player_stats {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .soccer_header,
+  .soccer_main_content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .soccer_header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .soccer_search_container {
+    width: 100%;
+  }
+
+  .soccer_section_tabs,
+  .soccer_position_tabs {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .soccer_section_tab,
+  .soccer_position_tab {
+    white-space: nowrap;
+  }
+
+  .soccer_featured_player_sidebar {
+    width: 80px;
+  }
+
+  .soccer_player_firstname {
+    font-size: 1.25rem;
+  }
+
+  .soccer_player_lastname {
+    font-size: 2rem;
+  }
+
+  .soccer_players_grid {
+    grid-template-columns: 1fr;
+  }
+}

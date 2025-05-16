@@ -1,0 +1,844 @@
+/* Variables */
+:root {
+  --football-primary: #b5004c;
+  --football-primary-light: #ff3385;
+  --football-primary-dark: #8c003b;
+  --football-bg: #0a1020;
+  --football-bg-light: #0f1525;
+  --football-bg-dark: #060a14;
+  --football-text: #ffffff;
+  --football-text-muted: rgba(255, 255, 255, 0.7);
+  --football-border: rgba(255, 255, 255, 0.1);
+  --football-gold: #ffc107;
+  --football-blue: #3498db;
+  --football-green: #2ecc71;
+  --football-purple: #9b59b6;
+  --football-gradient: linear-gradient(135deg, var(--football-primary) 0%, var(--football-primary-light) 100%);
+  --football-gradient-dark: linear-gradient(135deg, var(--football-bg-light) 0%, var(--football-bg) 100%);
+}
+
+/* Base Styles */
+.football_chat_container {
+  display: flex;
+  max-width: 1200px;
+  margin: 40px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  height: 800px;
+  position: relative;
+  background: var(--football-bg);
+}
+
+.football_chat_container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--football-gradient);
+  z-index: 10;
+}
+
+/* Sidebar */
+.football_chat_sidebar {
+  width: 300px;
+  background: var(--football-bg-dark);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.football_chat_sidebar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+.football_chat_logo {
+  padding: 30px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid var(--football-border);
+  position: relative;
+  z-index: 1;
+}
+
+.football_chat_logo_icon {
+  width: 50px;
+  height: 50px;
+  background: var(--football-gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(181, 0, 76, 0.3);
+}
+
+.football_chat_ball {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.football_chat_ball::before,
+.football_chat_ball::after {
+  content: "";
+  position: absolute;
+}
+
+.football_chat_ball::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 15px 15px, black 2px, transparent 2px),
+    radial-gradient(circle at 5px 5px, black 2px, transparent 2px),
+    radial-gradient(circle at 25px 10px, black 2px, transparent 2px),
+    radial-gradient(circle at 15px 25px, black 2px, transparent 2px),
+    radial-gradient(circle at 5px 25px, black 2px, transparent 2px);
+}
+
+.football_chat_ball::after {
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: black;
+  box-shadow: 0 -5px 0 black, 0 5px 0 black;
+}
+
+.football_chat_logo_text {
+  color: white;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+}
+
+.football_chat_logo_text span {
+  color: var(--football-primary-light);
+  font-size: 14px;
+}
+
+.football_chat_next_match {
+  margin: 30px 20px;
+  background: var(--football-bg-light);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  position: relative;
+  z-index: 1;
+}
+
+.football_chat_next_match_date {
+  width: 80px;
+  background: var(--football-primary);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 0;
+}
+
+.football_chat_date_number {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.football_chat_date_month {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.football_chat_match_details {
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.football_chat_competition {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--football-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.football_chat_teams {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.football_chat_vs {
+  font-size: 14px;
+  color: var(--football-primary-light);
+  font-weight: 600;
+}
+
+.football_chat_time_stadium {
+  font-size: 12px;
+  color: var(--football-text-muted);
+  display: flex;
+  flex-direction: column;
+}
+
+.football_chat_stadium {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Countdown Timer */
+.football_chat_countdown {
+  margin: 0 20px 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.football_chat_countdown_title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--football-text-muted);
+  text-align: center;
+  margin-bottom: 15px;
+  letter-spacing: 0.05em;
+}
+
+.football_chat_countdown_timer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.football_chat_countdown_item {
+  flex: 1;
+  background: white;
+  border-radius: 10px;
+  padding: 15px 5px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.football_chat_countdown_item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--football-primary);
+}
+
+.football_chat_countdown_value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--football-bg-dark);
+  margin-bottom: 5px;
+}
+
+.football_chat_countdown_label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--football-bg);
+  letter-spacing: 0.05em;
+}
+
+/* Main Content */
+.football_chat_main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.football_chat_main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.02' fill-rule='evenodd'/%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+/* Header */
+.football_chat_header {
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--football-border);
+  position: relative;
+  z-index: 1;
+}
+
+.football_chat_welcome h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.football_chat_highlight {
+  color: var(--football-primary-light);
+  position: relative;
+  display: inline-block;
+}
+
+.football_chat_highlight::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--football-gradient);
+  border-radius: 2px;
+}
+
+.football_chat_subtitle {
+  font-size: 16px;
+  color: var(--football-text-muted);
+}
+
+.football_chat_user_badge {
+  width: 45px;
+  height: 45px;
+  background: var(--football-gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 5px 15px rgba(181, 0, 76, 0.3);
+}
+
+/* Suggestions */
+.football_chat_suggestions {
+  padding: 20px 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.football_chat_suggestions_title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--football-text-muted);
+  margin-bottom: 15px;
+}
+
+.football_chat_suggestions_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.football_chat_suggestion_card {
+  background: var(--football-bg-light);
+  border: 1px solid var(--football-border);
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.football_chat_suggestion_card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--card-color, var(--football-primary));
+  transition: all 0.3s ease;
+}
+
+.football_chat_suggestion_card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--card-color, var(--football-primary-light));
+}
+
+.football_chat_suggestion_card:hover::before {
+  width: 100%;
+  opacity: 0.1;
+}
+
+.football_chat_suggestion_icon {
+  width: 36px;
+  height: 36px;
+  background: var(--card-color, var(--football-primary));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.football_chat_suggestion_text {
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  line-height: 1.4;
+}
+
+/* Chat Box */
+.football_chat_box {
+  flex: 1;
+  padding: 20px 30px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.football_chat_empty_state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--football-text-muted);
+  text-align: center;
+  gap: 15px;
+}
+
+.football_chat_empty_icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--football-primary-light);
+}
+
+.football_chat_message {
+  display: flex;
+  gap: 15px;
+  max-width: 80%;
+  animation: messageAppear 0.3s ease forwards;
+}
+
+@keyframes messageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.football_chat_user_message {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.football_chat_bot_message {
+  align-self: flex-start;
+}
+
+.football_chat_message_avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.football_chat_user_message .football_chat_message_avatar {
+  background: var(--football-bg-light);
+  color: var(--football-primary-light);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.football_chat_bot_message .football_chat_message_avatar {
+  background: var(--football-primary);
+  color: white;
+  box-shadow: 0 3px 10px rgba(181, 0, 76, 0.2);
+}
+
+.football_chat_message_content {
+  padding: 15px 20px;
+  border-radius: 18px;
+  font-size: 15px;
+  line-height: 1.6;
+  position: relative;
+}
+
+.football_chat_user_message .football_chat_message_content {
+  background: var(--football-gradient-dark);
+  color: white;
+  border-top-right-radius: 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.football_chat_bot_message .football_chat_message_content {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--football-text);
+  border-top-left-radius: 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-left: 3px solid var(--football-primary);
+}
+
+.football_chat_loading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--football-text-muted);
+}
+
+.football_chat_typing {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.football_chat_typing span {
+  width: 8px;
+  height: 8px;
+  background: var(--football-primary-light);
+  border-radius: 50%;
+  display: inline-block;
+  animation: typing 1.4s infinite ease-in-out both;
+}
+
+.football_chat_typing span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.football_chat_typing span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes typing {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* Input Area */
+.football_chat_input_area {
+  padding: 20px 30px;
+  display: flex;
+  gap: 15px;
+  border-top: 1px solid var(--football-border);
+  position: relative;
+  z-index: 1;
+}
+
+.football_chat_input_area::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--football-primary-light) 50%, transparent 100%);
+  opacity: 0.3;
+}
+
+.football_chat_input {
+  flex: 1;
+  padding: 15px 25px;
+  border: 2px solid var(--football-border);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 30px;
+  font-size: 16px;
+  color: white;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.football_chat_input:focus {
+  border-color: var(--football-primary);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 5px 20px rgba(181, 0, 76, 0.1);
+}
+
+.football_chat_input::placeholder {
+  color: var(--football-text-muted);
+}
+
+.football_chat_send_btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: var(--football-gradient);
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(181, 0, 76, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.football_chat_send_btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.football_chat_send_btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(181, 0, 76, 0.4);
+}
+
+.football_chat_send_btn:hover::before {
+  opacity: 1;
+}
+
+.football_chat_send_btn:disabled {
+  background: linear-gradient(135deg, rgba(181, 0, 76, 0.5) 0%, rgba(255, 51, 133, 0.5) 100%);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Scrollbar */
+.football_chat_box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.football_chat_box::-webkit-scrollbar-track {
+  background: var(--football-bg-dark);
+}
+
+.football_chat_box::-webkit-scrollbar-thumb {
+  background: var(--football-primary-dark);
+  border-radius: 3px;
+}
+
+.football_chat_box::-webkit-scrollbar-thumb:hover {
+  background: var(--football-primary);
+}
+
+/* Media Queries */
+@media (max-width: 1100px) {
+  .football_chat_container {
+    margin: 20px;
+    height: 700px;
+  }
+
+  .football_chat_sidebar {
+    width: 250px;
+  }
+
+  .football_chat_suggestions_grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .football_chat_container {
+    flex-direction: column;
+    height: 90vh;
+    margin: 20px;
+  }
+
+  .football_chat_sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px;
+  }
+
+  .football_chat_logo {
+    padding: 0;
+    border: none;
+    width: auto;
+  }
+
+  .football_chat_next_match {
+    margin: 0;
+    width: 300px;
+  }
+
+  .football_chat_countdown {
+    margin: 0;
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .football_chat_container {
+    margin: 0;
+    border-radius: 0;
+    height: 100vh;
+  }
+
+  .football_chat_sidebar {
+    padding: 10px;
+  }
+
+  .football_chat_logo_icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .football_chat_ball {
+    width: 25px;
+    height: 25px;
+  }
+
+  .football_chat_logo_text {
+    font-size: 16px;
+  }
+
+  .football_chat_next_match {
+    width: 250px;
+  }
+
+  .football_chat_countdown {
+    width: 250px;
+  }
+
+  .football_chat_header {
+    padding: 20px;
+  }
+
+  .football_chat_welcome h1 {
+    font-size: 22px;
+  }
+
+  .football_chat_subtitle {
+    font-size: 14px;
+  }
+
+  .football_chat_suggestions,
+  .football_chat_box,
+  .football_chat_input_area {
+    padding: 15px 20px;
+  }
+
+  .football_chat_message {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .football_chat_sidebar {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .football_chat_logo {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .football_chat_next_match,
+  .football_chat_countdown {
+    width: 100%;
+  }
+
+  .football_chat_welcome h1 {
+    font-size: 20px;
+  }
+
+  .football_chat_subtitle {
+    font-size: 13px;
+  }
+
+  .football_chat_suggestion_card {
+    padding: 15px;
+  }
+
+  .football_chat_suggestion_icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .football_chat_suggestion_text {
+    font-size: 13px;
+  }
+
+  .football_chat_message_content {
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .football_chat_header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .football_chat_user_badge {
+    align-self: flex-end;
+    margin-top: -50px;
+  }
+
+  .football_chat_countdown_timer {
+    flex-wrap: wrap;
+  }
+
+  .football_chat_countdown_item {
+    flex: 0 0 calc(50% - 5px);
+  }
+}

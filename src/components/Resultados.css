@@ -1,0 +1,94 @@
+:root {
+  --primary: #e6003d;
+  --dark: #0a1622;
+  --light: #ffffff;
+  --accent: #1a2a3a;
+  --highlight: #2e8b57;
+}
+
+.resultados {
+  background-color: var(--dark);
+  min-height: 100vh;
+  padding: 60px 20px;
+  color: var(--light);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.resultados-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.resultados-header h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.resultados-header p {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.cargando {
+  text-align: center;
+  font-size: 16px;
+  color: #ccc;
+}
+
+.lista-partidos {
+  max-width: 800px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+.partido {
+  background-color: var(--accent);
+  border-left: 5px solid var(--primary);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  transition: transform 0.2s ease;
+}
+
+.partido:hover {
+  transform: scale(1.02);
+}
+
+.equipos {
+  font-size: 16px;
+  flex: 2;
+}
+
+.score {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--highlight);
+  flex: 1;
+  text-align: center;
+}
+
+.fecha {
+  font-size: 12px;
+  color: #bbb;
+  text-align: right;
+  flex: 1;
+}
+
+@media (max-width: 600px) {
+  .partido {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .score, .fecha {
+    text-align: left;
+    margin-top: 10px;
+  }
+}

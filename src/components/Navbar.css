@@ -1,0 +1,251 @@
+/* Variables */
+:root {
+  --football-primary: #b5004c;
+  --football-primary-light: #ff3385;
+  --football-primary-dark: #8c003b;
+  --football-bg: #0a1020;
+  --football-bg-light: #0f1525;
+  --football-bg-dark: #060a14;
+  --football-text: #ffffff;
+  --football-text-muted: rgba(255, 255, 255, 0.7);
+  --football-border: rgba(255, 255, 255, 0.1);
+  --football-gradient: linear-gradient(135deg, var(--football-primary) 0%, var(--football-primary-light) 100%);
+}
+
+/* Reset */
+.football_navbar_wrapper ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.football_navbar_wrapper a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navbar Container */
+.football_navbar_wrapper {
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+}
+
+.football_navbar {
+  background-color: var(--football-bg-dark);
+  position: fixed; /* Fijado en la parte superior */
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+.football_navbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--football-gradient);
+  z-index: 10;
+}
+
+.football_navbar_container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.football_navbar_logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.football_navbar_logo_image {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.football_navbar_logo_text {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--football-text); /* Texto blanco */
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+/* Navigation Links */
+.football_navbar_links {
+  display: flex;
+  gap: 10px;
+}
+
+.football_navbar_item {
+  position: relative;
+  color: #ffffff;
+}
+
+.football_navbar_link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  color: var(--football-text); /* Texto blanco */
+  font-weight: 600;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.football_navbar_link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--football-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.football_navbar_link:hover {
+  color: var(--football-primary-light); /* Color rosa al hacer hover */
+}
+
+.football_navbar_link:hover::before {
+  opacity: 0.1;
+}
+
+.football_navbar_link_active {
+  color: var(--football-primary-light);
+}
+
+.football_navbar_link_active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 3px;
+  background: var(--football-primary-light);
+  border-radius: 3px;
+}
+
+/* Mobile Menu Toggle */
+.football_navbar_mobile_toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--football-text);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.football_navbar_mobile_toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Menu */
+.football_navbar_mobile_menu {
+  display: none;
+  flex-direction: column;
+  background-color: var(--football-bg);
+  padding: 20px;
+  border-top: 1px solid var(--football-border);
+  animation: slideDown 0.3s ease forwards;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  right: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.football_navbar_mobile_link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  color: var(--football-text); /* Texto blanco */
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.football_navbar_mobile_link:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--football-primary-light); /* Color rosa al hacer hover */
+}
+
+/* Ajuste para el contenido debajo del navbar fijo */
+body {
+  padding-top: 70px; /* Mismo alto que el navbar */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .football_navbar_links {
+    display: none;
+  }
+
+  .football_navbar_mobile_toggle {
+    display: block;
+  }
+
+  .football_navbar_mobile_menu {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .football_navbar_container {
+    padding: 0 15px;
+    height: 60px;
+  }
+
+  .football_navbar_logo_image {
+    width: 35px;
+    height: 35px;
+  }
+
+  .football_navbar_logo_text {
+    font-size: 20px;
+  }
+
+  body {
+    padding-top: 60px; /* Ajuste para navbar más pequeño en móvil */
+  }
+
+  .football_navbar_mobile_menu {
+    top: 60px;
+  }
+}
